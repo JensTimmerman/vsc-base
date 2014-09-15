@@ -339,8 +339,8 @@ def getLogger(name=None, fname=False, clsname=False, fancyrecord=None):
         nameparts.append(name)
     else:
         nameparts.append(getRootLoggerName())
-    elif fancyrecord is None or fancyrecord:  # only be fancy if fancyrecord is True or no name is given
-        fancyrecord = True
+        if fancyrecord is None or fancyrecord:  # only be fancy if fancyrecord is True or no name is given
+            fancyrecord = True
     fancyrecord = bool(fancyrecord)  # make sure fancyrecord is a nice bool, not None
 
     if clsname:
