@@ -333,13 +333,11 @@ def getLogger(name=None, fname=False, clsname=False, fancyrecord=None):
     This can make your code a lot slower, so this can be dissabled by setting fancyrecord to False, and
     will also be disabled if a Name is set, and fancyrecord is not set to True
     """
-    nameparts = []
+    nameparts = [getRootLoggerName()]
 
     if name:
         nameparts.append(name)
-    else:
-        nameparts.append(getRootLoggerName())
-        if fancyrecord is None or fancyrecord:  # only be fancy if fancyrecord is True or no name is given
+    elif fancyrecord is None or fancyrecord:  # only be fancy if fancyrecord is True or no name is given
             fancyrecord = True
     fancyrecord = bool(fancyrecord)  # make sure fancyrecord is a nice bool, not None
 
